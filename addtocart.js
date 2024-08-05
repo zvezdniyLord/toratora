@@ -295,7 +295,9 @@ function applyPromoCode(promoCode) {
   } else {
   }
 }
-
+document.querySelector('.btn-order').addEventListener("click", () => {
+  sendCartItems()
+})
 function searchProducts() {
   const input = document.getElementById("searchInput").value.toLowerCase();
   const resultsContainer = document.getElementById("searchResultsContainer");
