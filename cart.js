@@ -10,7 +10,7 @@ function openCart() {
 
 // Функция для закрытия боковой корзины
 function closeCart() {
-    cartContainer.style.right = '-600px'; // Скрываем корзину
+    cartContainer.style.right = '-1800px'; // Скрываем корзину
 }
 
 // Добавляем обработчик события на кнопку открытия корзины
