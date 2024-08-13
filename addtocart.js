@@ -9,6 +9,8 @@ const inputName = document.querySelector(".input-name");
 const inputOrder = document.querySelector(".input-order");
 const shoppingBlock = document.querySelector('.shopping_cart');
 const closeShopping = document.querySelector(".close-btn");
+var summory = document.querySelector('.summory')
+var summo = document.querySelector('.summo')
 
 elementGetNone(closeShopping, shoppingBlock);
 
@@ -118,11 +120,12 @@ function addToCart(
 }
 
 function displayCartItems() {
+  let marginTopValue = 0;
   const cartContainer = document.getElementById("cartItems");
   cartContainer.innerHTML = ""; // Clear container before adding new items
-
-  console.log("🚀  cartItems:", cartItems);
+  cartContainer.style.height = `${cartContainer.scrollHeight}px`
   cartItems.forEach((item) => {
+
     const listItem = document.createElement("li");
     listItem.classList.add("cart__list");
 
@@ -153,9 +156,10 @@ function displayCartItems() {
     // Create and append the text content
     const textContent = document.createElement("span");
     textContent.classList.add("name__list");
-    textContent.textContent = `${item.name} - ${
-      item.price * item.quantity
-    } R количество - ${item.quantity}`;
+    textContent.textContent = `${item.name} - ${item.price * item.quantity
+      } R  количество - ${item.quantity}`;
+    textContent.innerHTML = `${item.name} - <b>${item.price * item.quantity} R</b> количество - <b>${item.quantity}</b>`;
+
     listItem.appendChild(textContent);
 
     // Create and append the remove button
@@ -166,7 +170,9 @@ function displayCartItems() {
 
     listItem.appendChild(removeButton);
     cartContainer.appendChild(listItem);
-  });
+
+  },
+  );
 
   // Перерасчитываем итоговую сумму заказа
   const totalIndex = orderArr.findIndex((item) => item.id === "total");
@@ -211,7 +217,7 @@ function sendCartItems() {
     body: JSON.stringify(cartData),
   })
     .then((response) => response.json())
-    .then((data) => {})
+    .then((data) => { })
     .catch((error) => {
       console.error("Error:", error);
     });
@@ -242,11 +248,13 @@ function addTotalToOrderArr(orderArr) {
     count: 1,
     summ: totalSum, // Используем summ вместо СУММА
   });
+
   dataToInput(orderArr, inputData);
   return orderArr;
 }
 function dataToInput(data, input) {
-  console.log("🚀  data:", data);
+  summory.textContent = `${data[data.length - 1].price} рублей`
+  summo.textContent = `${data[data.length - 1].price} рублей`
   let result = "";
   if (Array.isArray(data)) {
     data.forEach((d) => {
