@@ -208,7 +208,6 @@ function sendCartItems() {
     price: item.price * item.quantity,
     quantity: item.quantity,
   }));
-
   fetch("./send.php", {
     method: "POST",
     headers: {
@@ -216,11 +215,12 @@ function sendCartItems() {
     },
     body: JSON.stringify(cartData),
   })
-    .then((response) => response.json())
-    .then((data) => { })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+  .then((response) => response.json())
+  .then((data) => { })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
+  console.log(cartData);
 }
 
 function orderAdd(productId, productName, productPrice, productQuantity) {
@@ -250,6 +250,7 @@ function addTotalToOrderArr(orderArr) {
   });
 
   dataToInput(orderArr, inputData);
+  console.log(inputData)
   return orderArr;
 }
 function dataToInput(data, input) {
@@ -263,6 +264,7 @@ function dataToInput(data, input) {
       input.value = result;
     });
   }
+  console.log(result)
   return result;
 }
 
@@ -298,13 +300,13 @@ function applyPromoCode(promoCode) {
       summ: newTotalSum,
       СУММА: newTotalSum,
     });
-
+    console.log(inputData)
     dataToInput(orderArr, inputData);
   } else {
   }
 }
-document.querySelector('.btn-order').addEventListener("click", () => {
-  sendCartItems()
+document.querySelector('.btn-order').addEventListener("subm", () => {
+  sendCartItems();
 })
 function searchProducts() {
   const input = document.getElementById("searchInput").value.toLowerCase();
