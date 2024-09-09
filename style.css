@@ -60,7 +60,7 @@ ul {
   top: 0;
   left: 0;
   position: absolute;
-  display: grid;
+  display: none;
   gap: 12px;
   padding: 42px 0;
   margin: 0;
@@ -1141,10 +1141,22 @@ button {
     margin: 0 auto;
   }
 
+  .menu-list {
+    display: grid;
+  }
+
+  .summory {
+    width: 100px !important;
+  }
+
+  .close-btn {
+    top: 1%;
+    right: 5%;
+  }
+
   .burger {
     display: block;
     top: 2.7rem;
-    left: 1rem;
   }
 
   .cart__list {
@@ -1462,7 +1474,21 @@ button {
   .burger {
     display: block;
     top: 2.7rem;
-    left: 1rem;
+    left: 0.5rem;
+  }
+
+  .menu-list {
+    display: grid;
+  }
+
+  .close-btn {
+    top: 1%;
+    right: 5%;
+  }
+
+  .summory {
+    width: 150px;
+    margin-top: 1rem;
   }
 
   .shopping_cart {
