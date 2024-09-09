@@ -1141,6 +1141,12 @@ button {
     margin: 0 auto;
   }
 
+  .dostavka {
+    max-width: 100%;
+    font-weight: 700;
+    text-align: center;
+  }
+
   .menu-list {
     display: grid;
   }
@@ -1475,6 +1481,12 @@ button {
     display: block;
     top: 2.7rem;
     left: 0.5rem;
+  }
+  
+  .dostavka {
+    max-width: 100%;
+    font-weight: 700;
+    text-align: center;
   }
 
   .menu-list {
