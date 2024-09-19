@@ -8,8 +8,6 @@ ul {
   box-sizing: border-box;
 }
 
-
-
 .burger-checkbox {
   position: absolute;
   visibility: hidden;
@@ -27,7 +25,7 @@ ul {
 }
 .burger::before,
 .burger::after {
-  content: '';
+  content: "";
   left: 0;
   position: absolute;
   display: block;
@@ -39,22 +37,22 @@ ul {
 .burger::before {
   top: 0;
   box-shadow: 0 11px 0 #000;
-  transition: box-shadow .3s .15s, top .3s .15s, transform .3s;
+  transition: box-shadow 0.3s 0.15s, top 0.3s 0.15s, transform 0.3s;
 }
 .burger::after {
   bottom: 0;
-  transition: bottom .3s .15s, transform .3s;
+  transition: bottom 0.3s 0.15s, transform 0.3s;
 }
 .burger-checkbox:checked + .burger::before {
   top: 11px;
   transform: rotate(45deg);
-  box-shadow: 0 6px 0 rgba(0,0,0,0);
-  transition: box-shadow .15s, top .3s, transform .3s .15s;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0);
+  transition: box-shadow 0.15s, top 0.3s, transform 0.3s 0.15s;
 }
 .burger-checkbox:checked + .burger::after {
   bottom: 11px;
   transform: rotate(-45deg);
-  transition: bottom .3s, transform .3s .15s;
+  transition: bottom 0.3s, transform 0.3s 0.15s;
 }
 .menu-list {
   top: 0;
@@ -67,7 +65,7 @@ ul {
   background: orange;
   list-style-type: none;
   transform: translateX(-100%);
-  transition: .3s;
+  transition: 0.3s;
   width: 200px;
 }
 .menu-item {
@@ -79,13 +77,11 @@ ul {
   text-decoration: none;
 }
 .menu-item:hover {
-  background: rgba(255,255,255,.2)
+  background: rgba(255, 255, 255, 0.2);
 }
 .burger-checkbox:checked ~ .menu-list {
   transform: translateX(0);
 }
-
-
 
 img {
   display: block;
@@ -172,6 +168,7 @@ button {
 .nav-button {
   display: flex;
   align-items: center;
+  justify-content: center;
   background-color: white;
   cursor: pointer;
   padding: 5px;
@@ -250,7 +247,7 @@ button {
   align-items: center;
   justify-content: space-evenly;
   height: 100px;
-  width: 1400px;
+  width: 75%;
 }
 .input-form.checkbox {
   width: 10px;
@@ -315,7 +312,7 @@ button {
 .navpanel__flex {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 .checkbox__label {
@@ -517,7 +514,6 @@ button {
 }
 
 .work__days {
-  margin-right: 20px;
   font-family: Inter, sans-serif;
 }
 
@@ -582,7 +578,6 @@ button {
 .cart {
   flex-direction: column;
   display: flex;
-  margin-left: 45px;
   align-self: stretch;
   font-weight: 400;
   text-align: center;
@@ -1172,9 +1167,7 @@ button {
 
   .shopping_cart {
     margin-left: 290px;
-
   }
-
 
   .flex__hidden {
     width: auto;
@@ -1206,6 +1199,7 @@ button {
   }
 
   .logo2 {
+    z-index: -1;
     height: 60px;
     display: none;
   }
@@ -1222,7 +1216,6 @@ button {
   .cart {
     margin-left: -10px;
     width: 70px;
-    height: 35px;
   }
 
   .closeCart {
@@ -1268,12 +1261,14 @@ button {
 
   .header {
     width: 100%;
+    height: 120px;
     align-items: start;
     display: flex;
     font-size: 10px;
   }
 
   .slider__position {
+    margin-top: 80px;
     width: 320px;
   }
 
@@ -1287,21 +1282,26 @@ button {
   }
 
   .navpanel {
-    width: 320px;
+    width: 100%;
   }
 
   .slide {
-    width: 1000px;
     justify-content: center;
+    transform: scale(0.9);
   }
 
   .category__link.active {
     padding: 8px;
     border-radius: 15px;
   }
-
+  .logo2 {
+    position: relative;
+    left: -20px;
+    display: inline;
+  }
   .desc__name {
-    font-size: 18px;
+    max-width: 150px;
+    font-size: 16px;
   }
 
   .desc__text,
@@ -1311,9 +1311,8 @@ button {
   }
 
   .slide__img {
-    width: 350px;
+    width: 320px;
     height: 250px;
-    transform: scale(0.8);
     image-resolution: 720dpi;
   }
 
@@ -1330,8 +1329,7 @@ button {
   }
 
   .flex__left {
-    padding-left: 20px;
-    width: 60%;
+    width: fit-content;
   }
 
   .close__search {
@@ -1340,8 +1338,7 @@ button {
   }
 
   .flex__right {
-    margin-left: 150px;
-    width: 50%;
+    width: fit-content;
   }
 
   .work__time {
@@ -1359,7 +1356,7 @@ button {
   }
 
   .search__flex {
-    width: auto;
+    width: fit-content;
   }
 
   .categorys {
@@ -1367,14 +1364,17 @@ button {
   }
 
   .navpanel__flex {
-    gap: 0;
-    width: 100%;
+    margin-top: 5px;
+    width: 98%;
     flex-direction: row;
     display: flex;
+    align-items: center;
   }
 
   .cat1__flex {
-    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
   .search__product {
@@ -1408,7 +1408,6 @@ button {
 
   .search__container {
     margin-top: 10px;
-    margin-left: 0.25rem;
   }
 
   .dops__btn {
@@ -1424,6 +1423,7 @@ button {
 
   .warning__desc {
     width: 250px;
+    margin-bottom: 20px;
   }
 
   .slidebtns {
@@ -1468,21 +1468,24 @@ button {
   .persons__block {
     flex-wrap: wrap;
   }
-
 }
 
-@media only screen and (min-device-width: 375px) and (max-device-width: 460px) {
+@media only screen and (min-device-width: 375px) and (max-device-width: 424px) {
   body {
     max-width: 100%;
     margin: 0 auto;
   }
 
+  .logos {
+    gap: 5px;
+  }
   .burger {
+    z-index: 5;
     display: block;
     top: 2.7rem;
     left: 0.5rem;
   }
-  
+
   .dostavka {
     max-width: 100%;
     font-weight: 700;
@@ -1490,17 +1493,13 @@ button {
   }
 
   .menu-list {
+    z-index: 4;
     display: grid;
   }
 
   .close-btn {
     top: 1%;
     right: 5%;
-  }
-
-  .summory {
-    width: 150px;
-    margin-top: 1rem;
   }
 
   .shopping_cart {
@@ -1556,14 +1555,7 @@ button {
   }
 
   .logo3 {
-    margin-bottom: 110px
-  }
-
-  .logos {
-    display: flex;
-    justify-content: flex-start;
-    width: 100px;
-    margin-right: 150px;
+    margin-bottom: 110px;
   }
 
   .footer__flex {
@@ -1605,9 +1597,11 @@ button {
   }
 
   .cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     width: 120px;
-    height: 50px;
-    margin-left: -3.2rem;
   }
 
   .flex__middle {
@@ -1623,6 +1617,7 @@ button {
   }
 
   .slider__position {
+    margin-top: 100px;
     width: 375px;
   }
 
@@ -1637,9 +1632,7 @@ button {
   }
 
   .slide {
-    width: 1000px;
     display: flex;
-    padding-left: 20px;
   }
 
   .category__link.active {
@@ -1659,7 +1652,7 @@ button {
   }
 
   .slide__img {
-    width: 350px;
+    width: 380px;
     height: 250px;
   }
 
@@ -1684,14 +1677,13 @@ button {
   }
 
   .flex__right {
-    width: 55%;
+    display: flex;
+    width: 25%;
   }
 
   .work__time {
-    margin-left: 50px;
     width: 0;
     height: 0;
-    font-size: 10px;
   }
 
   .category__hr {
@@ -1720,7 +1712,6 @@ button {
   }
 
   .navpanel__flex {
-    gap: 0;
     width: 100%;
     flex-direction: row;
     display: flex;
@@ -1746,8 +1737,6 @@ button {
   .offer {
     font-size: 10px;
     min-width: 60px;
-    margin-left: 2.5rem;
-    margin-top: 1rem;
     height: 35px;
     max-width: 70px;
   }
@@ -1767,6 +1756,318 @@ button {
 
   .warning__desc {
     width: 250px;
+    margin-bottom: 20px;
+  }
+
+  .slidebtns {
+    display: none;
+  }
+
+  .cat__flex {
+    width: 350px;
+    margin-top: 25px;
+    height: 100%;
+  }
+
+  .product__image {
+    height: 150px;
+    width: 150px;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media only screen and (min-device-width: 425px) and (max-device-width: 460px) {
+  body {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .logos {
+    gap: 5px;
+  }
+  .burger {
+    z-index: 5;
+    display: block;
+    top: 2.7rem;
+    left: 0.5rem;
+  }
+
+  .dostavka {
+    max-width: 100%;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .menu-list {
+    z-index: 4;
+    display: grid;
+  }
+
+  .close-btn {
+    top: 1%;
+    right: 5%;
+  }
+
+  .shopping_cart {
+    margin-left: 375px;
+  }
+
+  .cart__list {
+    margin-left: 0.4rem;
+    margin-right: 0.4rem;
+  }
+
+  .ok {
+    margin-bottom: 1rem;
+  }
+
+  .persons__block {
+    flex-wrap: wrap;
+  }
+
+  .name__list {
+    width: 160px;
+    font-weight: 700;
+  }
+  .get__offer {
+    margin-right: 0.5rem;
+  }
+
+  .closeCart {
+    margin-left: 0.5rem;
+  }
+
+  .mobile_akcii {
+    background: url(./img/akcii/ak1_mobile.png) no-repeat;
+  }
+
+  .del {
+    width: 70px;
+    margin-left: 1rem;
+    max-width: 80px;
+  }
+
+  .predupred {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .work__time {
+    opacity: 0;
+  }
+
+  .footer__info {
+    text-align: center;
+  }
+
+  .logo3 {
+    margin-bottom: 110px;
+  }
+
+  .footer__flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo2 {
+    width: 50px;
+    height: 70px;
+    display: block;
+    margin-left: -3rem;
+  }
+
+  #cartContainer {
+    width: 100% !important;
+  }
+
+  .input-form {
+    width: 300px;
+    height: 35px;
+  }
+
+  .cat1__flex {
+    width: 350px;
+  }
+
+  .contacts {
+    font: 12px Inter, sans-serif;
+  }
+
+  .product__desc {
+    font-size: 10px;
+    margin-left: 10px;
+  }
+
+  .cart__container {
+    width: 450px;
+  }
+
+  .cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 120px;
+  }
+
+  .flex__middle {
+    margin-left: 80px;
+    width: 50px;
+  }
+
+  .header {
+    width: 100%;
+    align-items: start;
+    display: flex;
+    font-size: 10px;
+  }
+
+  .slider__position {
+    margin-top: 100px;
+    width: 375px;
+  }
+
+  .left__contacts {
+    width: 100px;
+    flex-wrap: wrap;
+  }
+
+  .navpanel {
+    margin-top: 10px;
+    width: 90%;
+  }
+
+  .slide {
+    display: flex;
+  }
+
+  .category__link.active {
+    padding: 10px;
+    border-radius: 25px;
+  }
+
+  .desc__name {
+    font-size: 18px;
+  }
+
+  .desc__text,
+  .BGU,
+  .cost__with__weight {
+    font-size: 14px;
+    width: 150px;
+  }
+
+  .slide__img {
+    transform: scale(0.82);
+    width: 425px;
+    height: 250px;
+  }
+
+  .category {
+    display: none;
+  }
+
+  .category > a {
+    margin: 5px;
+  }
+
+  .work__days {
+    font-size: 12px;
+  }
+
+  .flex__left {
+    width: 125px;
+  }
+
+  .close__search {
+    z-index: 5;
+  }
+
+  .flex__right {
+    display: flex;
+    width: 25%;
+  }
+
+  .work__time {
+    width: 0;
+    height: 0;
+  }
+
+  .category__hr {
+    width: 300px;
+  }
+
+  .dops__btn {
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bold__catname {
+    margin-left: 30px;
+
+    font-size: 20px;
+  }
+
+  .search__flex {
+    width: auto;
+  }
+
+  .categorys {
+    width: 100%;
+  }
+
+  .navpanel__flex {
+    width: 100%;
+    flex-direction: row;
+    display: flex;
+  }
+
+  .logo1 {
+    display: none;
+  }
+
+  .add__to__cart {
+    width: 100px;
+    font-size: 12px;
+  }
+
+  .cat1__product {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    width: 350px;
+    margin-bottom: 0;
+  }
+
+  .offer {
+    font-size: 10px;
+    min-width: 60px;
+    height: 35px;
+    max-width: 70px;
+  }
+
+  .search {
+    width: 90px;
+  }
+
+  .search__container {
+    margin-top: 10px;
+    margin-left: 1rem;
+  }
+
+  .div__warning__midii {
+    width: auto;
+  }
+
+  .warning__desc {
+    width: 250px;
+    margin-bottom: 20px;
   }
 
   .slidebtns {
@@ -1795,22 +2096,19 @@ button {
   .navpanel__flex {
     display: flex;
   }
-
-  .cart {
-    margin-left: 50px;
-  }
-
-  .logos {
+  .navpanel {
     width: 100%;
+  }
+  .cart {
+    margin-left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
   .work__time {
-    opacity: 0;
     font-size: 14px;
-  }
-
-  .logos {
-    width: 150px;
   }
 
   .contacts__text {
@@ -1824,6 +2122,7 @@ button {
 
   .logo2 {
     display: block;
+    margin-left: 25px;
     width: 70px;
     height: 85px;
   }
@@ -1841,13 +2140,14 @@ button {
     height: 180px;
   }
 
-  .flex__left {
-    width: 220px;
+  .left__contacts {
+    display: flex;
+    flex-direction: column;
   }
 
   .category {
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 5px;
     margin-left: 10px;
   }
 
@@ -1861,6 +2161,7 @@ button {
   }
 
   .slider__position {
+    margin-top: 100px;
     width: 700px;
   }
 
@@ -1868,8 +2169,9 @@ button {
     width: 550px;
   }
 
-  .slide__img {
-    width: 80%;
+  .slide__img{
+    height: 400px;
+    width: 768px;
   }
 
   .cat__name {
@@ -1877,7 +2179,10 @@ button {
   }
 
   .navpanel__flex {
-    gap: 0px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .search {
@@ -1886,6 +2191,9 @@ button {
 
   .search__flex {
     width: 100px;
+  }
+  .flex__left {
+    width: fit-content;
   }
 }
 
@@ -1937,6 +2245,7 @@ button {
   .category {
     flex-wrap: wrap;
     display: flex;
+    margin-left: 15px;
   }
 
   .category > a {

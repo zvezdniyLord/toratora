@@ -1,0 +1,112 @@
+body{
+    height: 5000px;
+}
+.header {
+  height: 150px;
+  text-align: center;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.flex__left {
+    display: flex;
+}
+.navpanel {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.navpanel__flex {
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+}
+.menu {
+  display: none;
+}
+.contacts__text{
+    text-align: left;
+    margin-right: 15px;
+}
+.left__contacts{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.search__flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.search__flexbox {
+  align-items: center;
+  border: 1px solid #e31d24;
+  border-radius: 15px;
+  display: flex;
+}
+.search {
+  margin-left: 10px;
+  outline: none;
+  height: 25px;
+  width: 170px;
+  border: 0;
+}
+.lupa {
+  margin-right: 15px;
+  width: 20px;
+  height: 20px;
+}
+.offer {
+  width: 190px;
+  border: none;
+  border-radius: 73px;
+  background-color: #ef4808;
+  color: #fff;
+  text-transform: uppercase;
+  justify-content: center;
+  padding: 11px 22px;
+  font: 14px Inter, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo2 {
+  display: none;
+}
+.geolock {
+  margin-right: 5px;
+  width: 15px;
+  height: 20px;
+}
+
+.logo1 {
+  height: 100px;
+  width: 300px;
+}
+
+.cart__container {
+  height: 100vh; /* установите максимальную высоту контейнера */
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: -600px;
+  width: 600px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: right 0.3s ease;
+  z-index: 9999;
+}
+@media (max-width: 768px) {
+
+    .flex__left {
+    }
+    .search{
+        width: 25%;
+    }
+}

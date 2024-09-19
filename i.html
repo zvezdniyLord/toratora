@@ -1,112 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="s.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="navpanel">
+        <div class="navpanel__flex">
+          <div class="flex__hidden active">
+            <div class="category">
+              <a href="#cat1" class="category__link cat1">Роллы</a>
+              <a href="#cat2" class="category__link cat2">Темпура</a>
+              <a href="#cat3" class="category__link cat3">Запеченые роллы</a>
+              <a href="#cat4" class="category__link cat4">Торо-доги</a>
+              <a href="#cat6" class="category__link cat6">Супы</a>
+              <a href="#cat7" class="category__link cat7">Мидии</a>
+              <a href="#cat8" class="category__link cat8">Сеты</a>
+              <a href="#cat9" class="category__link cat9">Напитки</a>
+              <a href="#cat10" class="category__link cat10">Добавки</a>
+            </div>
+            <div class="menu">
+              <input
+                type="checkbox"
+                id="burger-checkbox"
+                class="burger-checkbox"
+              />
+              <label for="burger-checkbox" class="burger"></label>
+              <ul class="menu-list">
+                <li><a href="#cat1" class="menu-item">Роллы</a></li>
+                <li></li>
+                <li><a href="#cat2" class="menu-item">Темпура</a></li>
+                <li></li>
+                <li><a href="#cat3" class="menu-item">Запеченые роллы</a></li>
+                <li></li>
+                <li><a href="#cat4" class="menu-item">Торо-доги</a></li>
+                <li></li>
+                <li><a href="#cat6" class="menu-item">Супы</a></li>
+                <li></li>
+                <li><a href="#cat7" class="menu-item">Мидии</a></li>
+                <li></li>
+                <li><a href="#cat8" class="menu-item">Сеты</a></li>
+                <li></li>
+                <li><a href="#cat9" class="menu-item">Напитки</a></li>
+                <li></li>
+                <li><a href="#cat10" class="menu-item">Добавки</a></li>
+                <li></li>
+              </ul>
+            </div>
+          </div>
+          <div class="flex__left disable">
+            <div class="left__contacts">
+              <div class="contacts__text">
+                <div class="contacts">
+                  <a class="contacts__navbar" href="tel:+79095427774"
+                    >КОНТАКТЫ</a
+                  >
+                </div>
+                <div class="city">
+                  <img class="geolock" src="img/geo.png" alt="geo" srcset="" />
+                  <a
+                    class="contacts__navbar"
+                    target="_blank"
+                    href="https://maps.app.goo.gl/Jvub3HZUWTBL8NVt7"
+                  >
+                    Северск</a
+                  >
+                </div>
+              </div>
+              <div class="search__container">
+                <div class="search__flex">
+                  <div class="search__flexbox">
+                    <input
+                      type="text"
+                      id="searchInput"
+                      placeholder="Поиск"
+                      class="search"
+                      oninput="searchProducts()"
+                    />
+                    <img class="lupa" src="img/lupa.png" alt="" srcset="" />
+                  </div>
+                  <button class="close__search" style="display: none">X</button>
+                </div>
+                <div id="searchResultsContainer" style="display: none">
+                  <div id="searchResults"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex__middle disable">
+            <div class="logos">
+              <img loading="lazy" srcset="img/logo.png" class="logo1" />
+              <img loading="lazy" srcset="img/logo_min.png" class="logo2" />
+            </div>
+          </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Боковая корзина</title>
-    <style>
-        /* Стили для боковой корзины */
-        .cart-container {
-            position: fixed;
-            top: 0;
-            right: -300px;
-            /* Боковая корзина изначально сдвинута за пределы экрана */
-            width: 300px;
-            height: 100%;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            transition: right 0.3s ease;
-            /* Плавное анимированное появление/исчезновение */
-            z-index: 9999;
-            /* Чтобы корзина была поверх других элементов */
-        }
+          <div class="flex__right">
+            <div class="work__time">
+              <div class="time__text">Режим работы</div>
+              <div class="work__days">
+                пн-чт, вс с 14:00 до 22:30
+                <br />
+                пт-сб с 14:00 до 23:30
+              </div>
+            </div>
 
-        /* Стили для кнопки открытия корзины */
-        .open-cart-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            z-index: 9999;
-            /* Чтобы кнопка была поверх других элементов */
-        }
-    </style>
-</head>
+            <div class="cart">
+              <button class="offer" id="openCartBtn">Открыть корзину</button>
+              <p class="summory"></p>
+            </div>
+            <div class="cart__container" id="cartContainer">
+              <div class="shopping_cart">
+                <div class="close-btn">X</div>
+                <form class="form" method="post" action="./send.php" id="zakaz">
+                  <div class="form__left">
+                    <div class="inputs__left">
+                      <input
+                        required
+                        name="name"
+                        class="input-form input-name"
+                        type="text"
+                        placeholder="Ваше имя"
+                      />
+                      <input
+                        required
+                        name="tel"
+                        class="input-form input-tel"
+                        type="tel"
+                        placeholder="Введите телефон"
+                      />
+                    </div>
+                    <div class="delivery-block">
+                      <h3>Способ доставки</h3>
+                      <div class="checkbox">
+                        <input
+                          type="checkbox"
+                          class="input-form checkbox"
+                          name="samovuvoz"
+                          id="samovuvoz"
+                        />
+                        <label class="checkbox__label" for="samovuvoz"
+                          >Самовывоз г.Северск ул.Коммунистический 49б</label
+                        >
+                      </div>
+                      <div class="checkbox">
+                        <input
+                          type="checkbox"
+                          class="input-form checkbox"
+                          name="dostavka"
+                          id="dostavka"
+                        />
+                        <label class="checkbox__label" for="dostavka"
+                          >Доставка</label
+                        >
+                      </div>
+                    </div>
 
-<body>
-    <span>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum ex iusto magnam perspiciatis deserunt ad
-        reiciendis deleniti officia nesciunt? Vitae cum suscipit incidunt quisquam rem architecto laudantium totam
-        <b>delectus sequi.</b>
-    </span>
-    <!-- Кнопка для открытия боковой корзины -->
-    <button class="open-cart-btn" id="openCartBtn">Открыть корзину</button>
-<input type="time" id="timeInput" />
-    <!-- Контейнер для боковой корзины -->
-    <div class="cart-container" id="cartContainer">
-        <h2>Корзина</h2>
-        <ul id="cartItems">
-            <!-- Здесь будут отображаться добавленные продукты -->
-        </ul>
-        <button onclick="closeCart()" id="closeCartBtn">Закрыть корзину</button>
-    </div>
+                    <div class="persons__block">
+                      <input
+                        required
+                        name="home"
+                        class="input-form input-address"
+                        type="text"
+                        placeholder="Введите улицу,дом,подъезд, квартира *"
+                      />
+                      <input
+                        class="input-form"
+                        required
+                        name="count_pers"
+                        placeholder="Количество персон"
+                        type="number"
+                      />
+                    </div>
+                  </div>
+                  <div class="form__right">
+                    <div class="delivery-days">
+                      <input
+                        type="text"
+                        class="input-form"
+                        list="browsers"
+                        id="my-browser"
+                        name="my-browser"
+                        placeholder="Способ оплаты"
+                      />
+                      <datalist id="browsers">
+                        <option value="Наличными"></option>
+                        <option value="Картой"></option>
+                      </datalist>
+                      <input
+                        class="input-form promo-code-input"
+                        name="promokod"
+                        placeholder="Промокод"
+                        type="text"
+                      />
+                      <button class="promo-code-btn">Применить</button>
+                    </div>
+                    <input
+                      type="text"
+                      class="input-form comment"
+                      placeholder="Коментарий к заказу"
+                    />
+                  </div>
 
-    <script>
-        const timeInput = document.getElementById('timeInput');
+                  <button class="btn-order">Заказать</button>
+                  <p class="dostavka">
+                    Минимальная сумма заказа на бесплатную доставку 800р
+                  </p>
+                </form>
+              </div>
+              <div class="cart-right">
+                <div class="predupred">
+                  <p>
+                    Обратите внимание, что соусы и добавки продаются отдельно
+                  </p>
+                  <div class="dops__btn">
+                    <a href="#cat10" class="pred-btn">Перейти к добавкам</a>
+                  </div>
+                </div>
+                <h2 class="card-title">Корзина</h2>
 
-// Функция для добавления полтора часа к текущему времени
-function addOneAndHalfHours(date) {
-  const hours = date.getHours();
-  const minutes = date.getMinutes();
-  let newHours = hours + 1; // Добавляем 1 час
-  let newMinutes = minutes + 30; // Добавляем 30 минут
-
-  // Корректировка, если минут больше 60
-  if (newMinutes >= 60) {
-    newMinutes -= 60;
-    newHours += 1;
-  }
-
-  // Корректировка, если часов больше 23
-  if (newHours > 23) {
-    newHours -= 24;
-  }
-
-  return `${String(newHours).padStart(2, '0')}:${String(newMinutes).padStart(2, '0')}`;
-}
-
-// Установка минимального значения для input
-const now = new Date();
-const newTime = addOneAndHalfHours(now);
-timeInput.min = newTime;
-
-// Установка значения по умолчанию
-timeInput.value = newTime;
-        // Получаем ссылки на элементы
-        const openCartBtn = document.getElementById('openCartBtn');
-        const cartContainer = document.getElementById('cartContainer');
-        const closeCartBtn = document.getElementById('closeCartBtn');
-
-        // Функция для открытия боковой корзины
-        function openCart() {
-            cartContainer.style.right = '0'; // Показываем корзину
-        }
-
-        // Функция для закрытия боковой корзины
-        function closeCart() {
-            cartContainer.style.right = '-300px'; // Скрываем корзину
-        }
-
-        // Добавляем обработчик события на кнопку открытия корзины
-        openCartBtn.addEventListener('click', openCart);
-    </script>
-
-</body>
-
+                <hr class="card-hr" />
+                <div
+                  class="input-data"
+                  type="hidden"
+                  name="product"
+                  value=""
+                ></div>
+                <input
+                  class="input-price"
+                  type="hidden"
+                  name="price"
+                  value=""
+                />
+                <input class="input-name" type="hidden" name="name" value="" />
+                <input
+                  class="input-order"
+                  type="hidden"
+                  name="order"
+                  value=""
+                />
+                <input type="hidden" name="act" value="order" />
+                <div class="summa">
+                  Сумма заказа:
+                  <p class="summo"></p>
+                </div>
+                <div class="of__btns">
+                  <button class="closeCart" id="closeCartBtn">
+                    Закрыть корзину
+                  </button>
+                  <button
+                    id="submitCartButton"
+                    type="submit"
+                    class="get__offer"
+                  >
+                    Оформить заказ
+                  </button>
+                </div>
+                <ul id="cartItems"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <script src="menu.js"></script>
+  </body>
 </html>

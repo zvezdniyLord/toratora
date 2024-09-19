@@ -213,10 +213,10 @@ function sendCartItems() {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(cartData),
+    body: inputData,
   })
   .then((response) => response.json())
-  .then((data) => { })
+  .then((data) => {console.log(data)})
   .catch((error) => {
     console.error("Error:", error);
   });
@@ -369,3 +369,4 @@ function elementGetNone(pointer, element) {
     document.querySelector('.cart__container').style.width = '600px';
   })
 };
+console.log(inputData.value)

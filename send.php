@@ -9,24 +9,26 @@ $token = "7405933413:AAHRb-M7T282WvILRR8pkUCzacyxiauaahQ";
 $chat_id = "-4273521241";
 
 if ($_POST['act'] == 'order') {
-    $product = ($_POST['product']);
-    $street = ($_POST['street']);
+    $name = ($_POST['name']);
     $home = ($_POST['home']);
-    $podhome = ($_POST['podhome']);
-    $levelhome = ($_POST['levelhome']);
+    $product = ($_POST['product']);
+    $street = ($_POST['count_pers']);
+    $podhome = ($_POST['my-browser']);
+    $comment = ($_POST['comment']);
     $kvartira = ($_POST['kvartira']);
     $tel = ($_POST['tel']);
-    $name = ($_POST['name']);
+    $price = ($_POST('price'));
 
     $arr = array(
         'Имя:' => $name,
         'Заказ:' => $product,
         'Телефон:' => $tel,
-        'Улица:' => $street,
+        'Количество персон:' => $street,
         'Дом:' => $home,
-        'Подъезд:' => $podhome,
+        'Способ оплаты:' => $podhome,
         'Этаж:' => $levelhome,
-        'Квартира:' => $kvartira,
+        'Коментарий к заказу:' => $comment,
+        'Цена': => $price
     );
 
     foreach($arr as $key => $value) {

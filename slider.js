@@ -9,7 +9,7 @@ function goToSlide(slideIndex) {
 }
 
 function updateSlider() {
-  document.querySelector('.slides').style.transform = 'translateX(-' + (1900 * currentSlide) + 'px)';
+  document.querySelector('.slides').style.transform = 'translateX(-' + ( window.screen.width* currentSlide) + 'px)';
   navButtons.forEach(button => button.classList.remove('active'));
   navButtons[currentSlide].classList.add('active');
 }
